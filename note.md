@@ -25,8 +25,8 @@ ShoppingListはReactコンポーネントのクラスもしくは型。
 ビューの階層構造を返してくる。
 * props => propertiesの略、パラメータのこと
 
-renderメソッドが返すのは、画面上に表示したいものの説明。
-renderは舞踊がすべき記述形式であるReact要素を返す。
+renderメソッドが返すのは、画面上に表示したいものの説明。</br>
+renderは描画すべき記述形式であるReact要素を返す。</br>
 Reactの開発者はだいたいJSX構文を使用しているらしい。
 
 <div />構文はビルド時に React.createElement('div')に変換される
