@@ -3,7 +3,7 @@
 <h2>"React.Component"について</h2>
 まずはサブクラスについて
 
->>>
+```
 class ShoppingList extends React.Component {
   render() {
     return (
@@ -18,7 +18,7 @@ class ShoppingList extends React.Component {
     );
   }
 }
->>>
+```
 
 ShoppingListはReactコンポーネントのクラスもしくは型。
 コンポーネントはpropsを受け取ってrenderメソッドを通じて
@@ -32,7 +32,7 @@ Reactの開発者はだいたいJSX構文を使用しているらしい。
 <div />構文はビルド時に React.createElement('div')に変換される
 さっきのコードを置き換えるとこんな感じになる
 
->>>
+```
 return React.createElement('div', {className: 'shopping-list'},
   React.createElement('h1', Shopping List for {this.props.name}),
   React.createElement('ul', 
@@ -40,8 +40,7 @@ return React.createElement('div', {className: 'shopping-list'},
                       <li>WhatsApp</li>
                       <li>Oculus</li>)
                     　);
->>>
-
+```
 
 JSXではJavaScriptの全ての能力(能力とは？)を使える。
 どんなJavaScriptの式であろうと、JSX内で中括弧({}多分これ)に囲んで記入できる。
