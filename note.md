@@ -143,3 +143,10 @@ BoardのrenderSquareメソッド内でpropsとしてvalueという名の値をSq
 
 次にSquareのrenderメソッドで渡された値を表示するように{/* TODO */}を
 {this.props.value}に置き換える
+
+<h3>インタラクティブなコンポーネントを作る</h3>
+Squareコンポーネントがクリックされた時に"X"を表示させる。
+
+まずSquareコンポーネントのrender()関数から返されてるボタンタグを変更
+
+ここでSquareをクリックするブラウザ上でアラートが表示される
