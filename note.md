@@ -231,3 +231,26 @@ BoardからSquareに関数を渡すとして、
 * Squareの`render`メソッド内の`this.setState()`を`this.props.onClick()`に変更
 * Squareの`constructor`を削除
 
+
+SquareがクリックされるとBoardから渡された`onClick`関数がコールされる
+
+1. 組み込みのDOMコンポーネントである`<button>`に`onClick`プロパティが設定されているので
+   Reactがクリックに対するイベントリスナを設定する
+2. ボタンがクリックされるとReactはSquareの`render()`メソッd内に定義されている`onClick`のイベントハンドラをコールする
+3. このイベントハンドラが`this.props.onClick()`をコールする。
+   Squareの`onClick`プロパティはBoardから渡されているものになる
+4. BoardはSquareに`onClick={() => this.handleClick(i)}`を渡しているので
+   Squareはクリックされた時に`this.handleClick(i)`を呼び出す
+5. まだ`handleClick()`は定義していないのでコードがクラッシュする。
+   Squareをクリックすると"this.handleClick is not a function"のエラーが表示される
+
+<detail><summary>補足</summary>
+DOM要素である`<button>`は組み込みコンポーネントなので`onClick`属性はReactにとって特別な意味をもつ。
+Squareのようなカスタムコンポーネントでは、名前の付け方は自由。
+Squareの`onClick`プロパティやBoardの`handleClick`メソッドについては別の名前をつけたとしても同様に動作する。
+Reactではイベントを表すpropsには`on[Event]`という名前、イベントを処理するメソッドには`handle[Event]`のように名前をつけるのが慣例。</detail>
+
+まだ`handleClick`を定義していないので、マス目をクリックするとエラーが返る。
+`handleClick`をBoardクラスに足していく
+
+
