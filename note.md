@@ -150,3 +150,14 @@ Squareコンポーネントがクリックされた時に"X"を表示させる�
 まずSquareコンポーネントのrender()関数から返されてるボタンタグを変更
 
 ここでSquareをクリックするブラウザ上でアラートが表示される
+
+<detail><summary>**重要** アロー関数構文を使ってイベントハンドラを記述する</summary>
+
+```
+<button className="square" onClick={() => alert('click')}>
+```
+
+`onClick={() => alert('click')}`と表記した時にonClickプロパティに渡しているのは関数である。
+Reactはクリックされるまでこの関数を実行しない。
+`() =>`を書き忘れて`onClick={alert('click)}`と書くのはよくある間違いで
+コンポーネントが再レンダーされるたびにアラートが表示されるようになる</<detail>
