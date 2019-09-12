@@ -52,3 +52,91 @@ ShoppingListコンポーネントは<div />や<li />の組み込みのDOMコン�
 
 それぞれのReactコンポーネントはカプセル化されていて独立して動作する。
 これによって単純なコンポーネントから複雑なUIを作成することが可能になっている。
+
+
+<h2>スターターコードの中身を確認する</h2>
+
+```
+class Square extends React.Component {
+  render() {
+    return (
+      <button className="square">
+        {/* TODO */}
+      </button>
+    );
+  }
+}
+
+class Board extends React.Component {
+  renderSquare(i) {
+    return <Square />;
+  }
+
+  render() {
+    const status = 'Next player: X';
+
+    return (
+      <div>
+        <div className="status">{status}</div>
+        <div className="board-row">
+          {this.renderSquare(0)}
+          {this.renderSquare(1)}
+          {this.renderSquare(2)}
+        </div>
+        <div className="board-row">
+          {this.renderSquare(3)}
+          {this.renderSquare(4)}
+          {this.renderSquare(5)}
+        </div>
+        <div className="board-row">
+          {this.renderSquare(6)}
+          {this.renderSquare(7)}
+          {this.renderSquare(8)}
+        </div>
+      </div>
+    );
+  }
+}
+
+class Game extends React.Component {
+  render() {
+    return (
+      <div className="game">
+        <div className="game-board">
+          <Board />
+        </div>
+        <div className="game-info">
+          <div>{/* status */}</div>
+          <ol>{/* TODO */}</ol>
+        </div>
+      </div>
+    );
+  }
+}
+
+// ========================================
+
+ReactDOM.render(
+  <Game />,
+  document.getElementById('root')
+);
+```
+
+このコードは作成しようとしているもの(三目並べ)のベースとなる。
+CSSのスタイルはすでに含まれている
+ => 'index.css'をimportしているため
+
+このコードの中には3つのReactコンポーネントが存在する
+* Square(正方形のマス目)
+* Board (盤面
+* Game
+
+Square(マス目)コンポーネントは1つの<button>をレンダーし
+Board(盤面)が9個のマス目をレンダーしている。
+Gameコンポーネントは盤面とプレースホルダーを描画。
+この時点ではインタラクティブなコンポーネントは存在しない
+
+<h2>データをProps経由で渡す</h2>
+はじめにBoardコンポーネントからSquareコンポーネントにデータを渡してみる
+
+BoardのrenderSquareメソッド内でpropsとしてvalueという名の値をSquareに渡すようにコードを変更する
