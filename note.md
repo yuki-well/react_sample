@@ -139,4 +139,7 @@ Gameコンポーネントは盤面とプレースホルダーを描画。
 <h2>データをProps経由で渡す</h2>
 はじめにBoardコンポーネントからSquareコンポーネントにデータを渡してみる
 
-BoardのrenderSquareメソッド内でpropsとしてvalueという名の値をSquareに渡すようにコードを変更する
+BoardのrenderSquareメソッド内でpropsとしてvalueという名の値をSquareに渡すようにコードを変更する.
+
+次にSquareのrenderメソッドで渡された値を表示するように{/* TODO */}を
+{this.props.value}に置き換える
