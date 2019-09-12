@@ -225,5 +225,9 @@ SquareからBoardのstateを直接書き換えることができない。
 BoardからSquareに関数を渡すとして、
 マス目がクリックされた時にSquareにその関数を読んでもらうようにする
 
+続いてSquareに変更していく
 
+* Squareの`render`メソッド内の`this.state.value`を`this.props.value`に変更
+* Squareの`render`メソッド内の`this.setState()`を`this.props.onClick()`に変更
+* Squareの`constructor`を削除
 
