@@ -174,3 +174,19 @@ Reactコンポーネントはコンストラクタで`this.state`を設定する
 <detail><summary>補足</summary>
 JavaScriptのクラスでは、サブクラスのコンストラクタを定義する際は常に`super`を呼ぶ必要がある。
 `constructor`を持つReactのクラスコンポーネントでは全てのコンストラクタを`super(props)`の呼び出しから始めるべき</detail>
+
+
+次にSquareの`render`メソッドを書き換えて、クリックされた時にstateの現在値を表示するようにする
+
+* `<button>`タグ内の`this.props.value`を`this.state.value`に置き換える
+* `onClick={...}`というイベントハンドラを`onClick={() => this.setState({value: 'X'})}`に置き換える
+* 読みやすくするため`className`と`onClick`の両プロパティをそれぞれ独立した行に配置する。
+
+これらの書き換えでSquareのrenderメソッドから返される`<button>`タグが変わる
+
+Squareの`render`メソッド内に書かれた`onClick`ハンドラ内で`this.setState`を呼び出すことで
+Reactに`<button>`がクリックされたら常に再レンダーするようにできる。
+データ更新のあと、このSquareの`this.state.value`は `'X'`になっているので
+どのマス目をクリックしても盤面に`X`と表示されることになる
+
+`setState`をコンポーネント内で呼び出すと、Reactはその内部の子コンポーネントも自動的に更新する。
